@@ -1,6 +1,6 @@
 
 -- 0 - disable debug info, 1 - less debug info, 2 - verbose debug info
-DEBUG = 1
+DEBUG = 2
 
 -- display FPS stats on screen
 DEBUG_FPS = true
@@ -54,7 +54,10 @@ c.IS_EDIT 	= true
 --========================
 --  ECStudio 框架配置
 --========================
-c.packages 	= c.packages or {ecui = true, }
+c.packages 	= c.packages or {
+	ecui = true, 
+	ccui = true, 
+}
 
 
 

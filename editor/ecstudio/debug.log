@@ -28,7 +28,7 @@ LOAD LUA FILE: /Users/zengbinsi/workspace/00_git/ECStudio_Lua/editor/ecstudio/sr
 [LUA-print]               LOAD QUICK FRAMEWORK
 [LUA-print] ===========================================================
 [LUA-print] [INFO] 
-[LUA-print] [INFO] # DEBUG                        = 1
+[LUA-print] [INFO] # DEBUG                        = 2
 [LUA-print] [INFO] #
 [LUA-print] [INFO] # device.platform              = mac
 [LUA-print] [INFO] # device.model                 = unknown
@@ -60,3 +60,11 @@ libpng warning: iCCP: known incorrect sRGB profile
 [LUA-print] =======================================
 [LUA-print] ------------ 模块引入结束 ---------------
 [LUA-print] =======================================
+[LUA-print] touch gameObject11
+[LUA-print] touch gameObject11
+[LUA-print] touch gameObject111
+[LUA-print] touch gameObject111
+[LUA-print] touch gameObject11
+[LUA-print] touch gameObject11
+[LUA-print] touch gameObject1
+[LUA-print] touch gameObject1

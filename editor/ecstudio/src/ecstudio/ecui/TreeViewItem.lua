@@ -66,22 +66,12 @@
 
 
 local M 	= class("TreeView", function(params)
-	params = params or {}
-
-	-- local lable = U.loadLabelTTF({
- -- 		text 		= params.text or "unname", 
- -- 		fontColor 	= UI_LABEL_DEFAULT_FONT_COLOR, 
- -- 		}):anchor(ccp(0, .5))
-	-- local item = U.loadNode()
-
-	-- item:anchor(ccp(ccp(0, 1))):setContentSize(CCSize(300, lable:ch()))
-	-- lable:to(item):p((params.level or 0) * 20, item:ch() / 2)
-
+	params 		= params or {}
 	local lable = cc.LabelTTF:create(params.text or "unname", nil, 18)
-	local item 	= cc.Node:create()
+	local item 	= ccui.ui.loadNode()
 
 	item:setAnchorPoint(cc.p(0, 1))
-	item:setContentSize(CCSize(300, lable:getContentSize().height))
+	item:setContentSize(cc.size(300, lable:getContentSize().height))
 	item:addChild(lable)
 
 	lable:setPosition((params.level or 0) * 20, item:getContentSize().height / 2)
@@ -121,7 +111,7 @@ function M:ctor(params)
  	self.touchEnded 	= params.touchEnded
  	self.touchCancelled = params.touchCancelled
 
- 	-- self:bindTouch() 
+ 	self:bindTouch() 
 end
 
 
@@ -152,7 +142,7 @@ end
 function M:onTouchBegan(x, y, touches)
 	print("touch ".. self.text)
 
-	self.preTouch 	= ccp(x, y)
+	self.preTouch 	= cc.p(x, y)
 
 	if self.touchBegan then 
 		self.touchBegan({target = self.text, x = x, y = y, touches = touches, })
@@ -172,7 +162,7 @@ function M:onTouchEnded(x, y, touches)
 		self.touchEnded({target = self.text, x = x, y = y, touches = touches, })
 	end
 
-	if ccpDistance(self.preTouch, ccp(x, y)) > 50 then 
+	if cc.pGetDistance(self.preTouch, cc.p(x, y)) > 50 then 
 		return 
 	end
 
@@ -270,7 +260,7 @@ function M:openItems()
 
  	for i, item in ipairs(self.items) do
  		item:openItems()
- 		newItem:setVisible(true)
+ 		item:setVisible(true)
  	end
 
  	self:updateItemsPosition()
@@ -294,7 +284,7 @@ function M:closeItems()
  	self.isOpenCascade = nil  
 
  	for i, item in ipairs(self.items) do
- 		newItem:setVisible(false)
+ 		item:setVisible(false)
  		item:closeItems()
  	end
 
@@ -358,7 +348,7 @@ function M:getItemSize()
  		end
  	end
 
- 	return CCSize(w, h)
+ 	return cc.size(w, h)
 end
 
 

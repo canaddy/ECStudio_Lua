@@ -4,40 +4,54 @@ local MainScene = class("MainScene", function()
 end)
 
 function MainScene:ctor()
-    cc.ui.UILabel.new({
-            UILabelType = 2, text = "Hello, World", size = 64})
-        :align(display.CENTER, display.cx, display.cy)
-        :addTo(self)
+    
 
 
 
-	-- local t1 	= ecui.TreeViewItem.new({text = "item1", level = 0})
+	local t1 	= ecui.TreeViewItem.new({text = "gameObject1", level = 0})
 
-	-- t1:setPosition(400, 400)
-	-- self:addChild(t1, 1000)
+	t1:setPosition(400, 400)
+	self:addChild(t1, 1000)
 
-	-- t11 	= ecui.TreeViewItem.new({text = "item11", level = 1})
-	-- t1:addItem(t11)
+	t11 	= ecui.TreeViewItem.new({text = "gameObject11", level = 1})
+	t1:addItem(t11)
 
-	-- t12 	= ecui.TreeViewItem.new({text = "item12", level = 1})
-	-- t1:addItem(t12)
+	t12 	= ecui.TreeViewItem.new({text = "gameObject12", level = 1})
+	t1:addItem(t12)
 
-	-- t111 	= ecui.TreeViewItem.new({text = "item111", level = 2})
-	-- t11:addItem(t111)
+	t111 	= ecui.TreeViewItem.new({text = "gameObject111", level = 2})
+	t11:addItem(t111)
 	
-	-- t1111 	= ecui.TreeViewItem.new({text = "item1111", level = 3})
-	-- t111:addItem(t1111)
+	t1111 	= ecui.TreeViewItem.new({text = "gameObject1111", level = 3})
+	t111:addItem(t1111)
 
-	-- t112 	= ecui.TreeViewItem.new({text = "item112", level = 2})
-	-- t11:addItem(t112)	
+	t112 	= ecui.TreeViewItem.new({text = "gameObject112", level = 2})
+	t11:addItem(t112)	
 
 
 	local layer = cc.Layer:create()
 	self:addChild(layer, 100)
 
-	-- layer:addNodeEventListener(c.NODE_TOUCH_EVENT, function(event)
-	-- 	dump(event)
-	-- end)
+
+	local a = cc.ui.UILabel.new({
+            UILabelType = 2, text = "Hello, World", size = 64})
+        :align(display.CENTER, display.cx, display.cy)
+        :addTo(layer) 
+
+	ex.EventEx.bindTouch(a)
+
+	function a:onTouchBegan(x, y, event)
+		print("ssssssssss")
+		return true 
+	end
+
+	function a:onTouchMoved(x, y, touches)
+		print("ssssssssss2")
+	end
+
+	function a:onTouchEnded(x, y, event)
+		print("ssssssssss3")
+	end
 end
 
 function MainScene:onEnter()

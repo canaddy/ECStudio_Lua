@@ -34,6 +34,7 @@ c.packages.ecstudio = true
 
 if c.packages.base then 
 	-- 引入基础模块（工具类、结构、自定义类等封装）
+	import(".base.init")
 end
 
 if c.packages.ecstudio then 
@@ -54,6 +55,7 @@ end
 
 if c.packages.ccui then 
 	-- 引入ccui模块
+	import(".ccui.init")
 end
 
 if c.packages.ecui then 
