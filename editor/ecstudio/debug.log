@@ -60,8 +60,3 @@ libpng warning: iCCP: known incorrect sRGB profile
 [LUA-print] =======================================
 [LUA-print] ------------ 模块引入结束 ---------------
 [LUA-print] =======================================
-[LUA-print] dump from: [string "/Users/zengbinsi/workspace/00_git/ECStudio_Lua/editor/ecstudio/src/app/MyApp.lua"]:43: in function 'onMenuClicked'
-[LUA-print] - "<var>" = {
-[LUA-print] -     "data" = "ABOUT_ECSTUDIO_MENU"
-[LUA-print] -     "name" = "menuClicked"
-[LUA-print] - }

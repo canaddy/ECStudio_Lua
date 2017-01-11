@@ -23,3 +23,47 @@ CONFIG_SCREEN_HEIGHT = 640
 
 -- auto scale mode
 CONFIG_SCREEN_AUTOSCALE = "FIXED_HEIGHT"
+
+
+
+
+
+
+
+
+
+
+
+
+--========================
+--  编辑器配置
+--========================
+
+c 	= c or {}
+
+-- 是否是编辑器模式
+c.IS_EDIT 	= true 
+
+
+
+
+
+
+
+
+--========================
+--  ECStudio 框架配置
+--========================
+c.packages 	= c.packages or {ecui = true, }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,7 +22,10 @@ c 					= c or {}
 ---
 -- 引入的模块
 ---
-c.packages 			= c.packages or {base = true, ecstudio = true, }
+c.packages 			= c.packages or {}  
+
+c.packages.base 	= true 
+c.packages.ecstudio = true 
 
 
 --========================
@@ -53,8 +56,9 @@ if c.packages.ccui then
 	-- 引入ccui模块
 end
 
-if c.packages.ecsui then 
+if c.packages.ecui then 
 	-- 引入ECStudio UI模块
+	import(".ecui.init")
 end
 
 if c.packages.network then 
@@ -72,6 +76,26 @@ end
 if c.packages.bbframework then 
 	-- 引入bbframework模块
 end
+
+
+
+
+
+
+
+
+--========================
+--  player
+--========================
+
+-- 是否处于编辑器模式
+if c.IS_EDIT then 
+	c.playerEx 	= import(".playerEx.PlayerEx")
+
+	c.playerEx.initPlayerEx()
+end
+
+
 
 
 
