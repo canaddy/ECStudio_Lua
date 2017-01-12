@@ -76,6 +76,7 @@ local M 	= class("TreeView", function(params)
 
 	lable:setPosition((params.level or 0) * 20, item:getContentSize().height / 2)
 	lable:setAnchorPoint(cc.p(0, 0.5))
+	lable:setColor(cc.c4b(189, 189, 189, 255))
 
 	return item
 end)
@@ -103,6 +104,8 @@ function M:ctor(params)
  	self.level 			= params.level or 0 
  	-- 缩进
  	self.tabLen 		= 20 
+ 	-- 用户数据
+ 	self.userData 		= params.userData or self  
 
 
  	-- 事件回调
@@ -140,8 +143,6 @@ end
 --======================== 
 
 function M:onTouchBegan(x, y, touches)
-	print("touch ".. self.text)
-
 	self.preTouch 	= cc.p(x, y)
 
 	if self.touchBegan then 
@@ -255,11 +256,13 @@ end
 -   返回值类型 							返回值说明  
 
 --]]
-function M:openItems()
+function M:openItems(isCascade)
  	self.isOpenCascade = true 
 
  	for i, item in ipairs(self.items) do
- 		item:openItems()
+ 		if isCascade then 
+	 		item:openItems(isCascade)
+	 	end
  		item:setVisible(true)
  	end
 
@@ -280,12 +283,14 @@ end
 -   返回值类型 							返回值说明  
 
 --]]
-function M:closeItems()
+function M:closeItems(isCascade)
  	self.isOpenCascade = nil  
 
  	for i, item in ipairs(self.items) do
  		item:setVisible(false)
- 		item:closeItems()
+ 		if isCascade then 
+	 		item:closeItems(isCascade)
+	 	end
  	end
 
  	self:updateItemsPosition()

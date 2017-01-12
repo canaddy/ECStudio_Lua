@@ -24,3 +24,8 @@ ecui 	= ecui or {}
 -- 树形控件
 ---
 ecui.TreeViewItem 	= ecui.TreeViewItem or import(".TreeViewItem")  
+
+---
+-- 带标题的面板控件
+---
+ecui.TitlePanel 	= ecui.TitlePanel or import(".TitlePanel")  

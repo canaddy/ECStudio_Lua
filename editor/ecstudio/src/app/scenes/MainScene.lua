@@ -33,25 +33,12 @@ function MainScene:ctor()
 	self:addChild(layer, 100)
 
 
-	local a = cc.ui.UILabel.new({
-            UILabelType = 2, text = "Hello, World", size = 64})
-        :align(display.CENTER, display.cx, display.cy)
-        :addTo(layer) 
 
-	ex.EventEx.bindTouch(a)
 
-	function a:onTouchBegan(x, y, event)
-		print("ssssssssss")
-		return true 
-	end
+	local colorLayer = ccui.ui.loadLayerColor({color = cc.c4b(52, 52, 52, 255)})
+	self:addChild(colorLayer)
 
-	function a:onTouchMoved(x, y, touches)
-		print("ssssssssss2")
-	end
-
-	function a:onTouchEnded(x, y, event)
-		print("ssssssssss3")
-	end
+	-- ecui.TitlePanel.new():to(self)
 end
 
 function MainScene:onEnter()

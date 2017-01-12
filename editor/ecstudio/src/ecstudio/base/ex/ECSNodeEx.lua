@@ -182,7 +182,120 @@ function Node:addNode(child, z)
  	self:addChild(child, z)
 
  	return self 
+end 
+
+--[[-
+x坐标  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的x坐标。  
+
+### Notice:
+	当传递参数x的时候，该方法为设置坐标，并返回当前节点。
+	当不传递参数x的时候，该方法为获取坐标。
+
+### Parameters:
+- 	number 	**x** 					[可选] x坐标值  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:px(x)
+ 	if x then 
+ 		self:setPositionX(x)
+ 		return self 
+ 	else
+ 		self:getPositionX()
+ 	end
 end
+
+--[[-
+y坐标  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的y坐标。  
+
+### Notice:
+	当传递参数y的时候，该方法为设置坐标，并返回当前节点。
+	当不传递参数y的时候，该方法为获取坐标。
+
+### Parameters:
+- 	number 	**y** 					[可选] y坐标值  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:py(y)
+ 	if y then 
+ 		self:setPositionY(y)
+ 		return self 
+ 	else
+ 		self:getPositionY()
+ 	end
+end
+
+--[[-
+锚点x坐标  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的x坐标。  
+
+### Notice:
+	当传递参数x的时候，该方法为设置坐标，并返回当前节点。
+	当不传递参数x的时候，该方法为获取坐标。
+
+### Parameters:
+- 	number 	**x** 					[可选] x坐标值  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:ax(x)
+ 	if x then 
+ 		local y 	= self:getAnchorPoint().y
+
+ 		self:setAnchorPoint(cc.p(x, y))
+ 		return self 
+ 	else
+ 		return self:getAnchorPoint().x
+ 	end
+end
+
+--[[-
+y坐标  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的y坐标。  
+
+### Notice:
+	当传递参数y的时候，该方法为设置坐标，并返回当前节点。
+	当不传递参数y的时候，该方法为获取坐标。
+
+### Parameters:
+- 	number 	**y** 					[可选] y坐标值  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:ay(y)
+ 	if y then 
+ 		local x 	= self:getAnchorPoint().x
+
+ 		self:setAnchorPoint(cc.p(x, y))
+ 		return self 
+ 	else
+ 		return self:getAnchorPoint().y
+ 	end
+end
+
 
 
 

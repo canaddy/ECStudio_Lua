@@ -120,6 +120,46 @@ function M.loadLableTTF(params)
 end
 M.createSprite 	= M.loadSprite  
 
+--[[-
+加载一个带有颜色的Layer    
+
+<br/>  
+### Useage:
+  	创建带有背景颜色的图层。  
+
+### Aliases:
+	**loadColorLayer**  
+
+### Notice:
+	注意   
+
+### Example:
+	
+	-------------  
+	-- 实例一
+	-------------  
+	local colorLayer = ccui.ui.loadLayerColor({})
+	self:addChild(colorLayer)  
+
+### Parameters:
+- 	table 	**params** 				[可选] 创建带颜色图层的参数列表  
+
+### OptionParameters
+	ccColor4B 		**color** 			背景色  
+
+### Returns: 
+-   cc.ColorLayer    
+
+--]]
+function M.loadLayerColor(params)
+	params 			= params or {}
+	-- 标题背景色：cc.c4b(52, 52, 52, 255) ，面板背景色：cc.c4b(38, 38, 38, 255)， 文字颜色：cc.c4b(189, 189, 189, 255)
+	local color 	= params.color or cc.c4b(38, 38, 38, 255)
+
+ 	return ex.ECSNodeEx.extend(cc.LayerColor:create(color))
+end
+M.loadColorLayer 	= M.loadLayerColor
+
 
 
 
