@@ -57,6 +57,9 @@ libpng warning: iCCP: known incorrect sRGB profile
 [LUA-print] [INFO] # display.c_top                = 320.00
 [LUA-print] [INFO] # display.c_bottom             = -320.00
 [LUA-print] [INFO] #
-[LUA-print] =======================================
-[LUA-print] ------------ 模块引入结束 ---------------
-[LUA-print] =======================================
+[LUA-print] ====================================================
+[LUA-print] ------------ LOAD ECStudio FRAMEWORK ---------------
+[LUA-print] ====================================================
+[LUA-print] ================================================
+[LUA-print] ------------ ECStudio 模块引入结束 ---------------
+[LUA-print] ================================================
