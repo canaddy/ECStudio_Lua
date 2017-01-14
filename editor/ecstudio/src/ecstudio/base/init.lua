@@ -31,3 +31,26 @@ ex.EventEx 			= import(".ex.EventEx")
 -- 节点扩展  
 --- 
 ex.ECSNodeEx 		= import(".ex.ECSNodeEx")
+
+
+
+
+
+
+
+
+--========================
+--  tools
+--========================
+-- 函数
+import(".tools.ZFunction")
+
+
+
+
+
+
+
+
+
+
