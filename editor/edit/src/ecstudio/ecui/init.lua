@@ -23,9 +23,19 @@ ecui 	= ecui or {}
 ---
 -- 树形控件
 ---
-ecui.TreeViewItem 	= ecui.TreeViewItem or import(".TreeViewItem")  
+ecui.TreeViewItem 		= ecui.TreeViewItem or import(".TreeViewItem")  
+
+---
+-- 选项卡分页选项控件
+---
+ecui.TabControlItem 	= ecui.TabControlItem or import(".TabControlItem")  
+
+---
+-- 选项卡控件
+---
+ecui.TabControl 		= ecui.TabControl or import(".TabControl")  
 
 ---
 -- 带标题的面板控件
 ---
-ecui.TitlePanel 	= ecui.TitlePanel or import(".TitlePanel")  
+-- ecui.TitlePanel 	= ecui.TitlePanel or import(".TitlePanel")  

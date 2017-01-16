@@ -32,7 +32,6 @@
 local M 	= ef.classScene("DashboardScene")
 
 function M:ctor()
-	self:loadBg()
 	self:loadLayers()
 end
 
@@ -46,11 +45,6 @@ end
 --========================
 --  功能方法
 --========================
-
--- 加载背景  
-function M:loadBg()
-	ccui.ui.loadLayerColor({}):to(self, -10000)
-end
 
 --[[-
 加载Layer  

@@ -39,8 +39,8 @@ function M:ctor()
 	self:setAnchorPoint(cc.p(.5, .5))
 	self:setPosition(display.cx, display.cy)
 
-	self:loadPanelHead()
-	self:loadPanelBody()
+	self:loadTitle()
+	self:loadProjectList()
 
 	self:bindTouch()
 end
@@ -48,46 +48,35 @@ end
 
 --========================
 --  功能方法
---========================
+--======================== 
 
-
--- 加载面板标题部分
-function M:loadPanelHead()
-	self:loadTitle()
-	self:loadButtonNew()
-	self:loadButtonOpen()
-end 
-
--- 显示头部的”Project“标签
 function M:loadTitle()
-	ccui.ui.loadLableTTF({
-		text 	= "Projects"
-		}):px(100):py(590):to(self)
-end
+	local line 	= cc.LayerColor:create(cc.c4b(101, 77, 71, 255))
 
-function M:loadButtonNew()
-	ccui.ui.loadLableTTF({
-		text 	= "New"
-		}):px(690):py(590):to(self)
-end
+	line:setContentSize(cc.size(display.width, 2))
+	line:setPosition(0, 580)
+	self:addChild(line, 10)
 
-function M:loadButtonOpen()
-	local btnOpen = ccui.ui.loadLableTTF({
-		text 	= "Open"
-		}):px(770):py(590):to(self):bindTouch()
-	local this = self 
+	do 
+		local icon 	= cc.Sprite:create("img/common/ecstudio_icon.png")
 
-	function btnOpen:onTouchBegan(x, y)
-		return true 
+		icon:setScale(.25)
+		icon:setPosition(30, 30)
+		line:addChild(icon, 10)
 	end
 
-	function btnOpen:onTouchEnded(x, y, event)
-		this:openProject()
+	do 
+		local title = display.newTTFLabel({
+			text 		= "ECStudio",
+			})
+
+		title:setPosition(110, 30)
+		line:addChild(title, 10)
 	end
 end
 
 -- 加载面板内容部分
-function M:loadPanelBody()
+function M:loadProjectList()
 
 	-- 加载一个滚动的项目列表
 end 
