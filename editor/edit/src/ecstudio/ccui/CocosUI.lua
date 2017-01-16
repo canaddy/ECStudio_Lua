@@ -145,7 +145,8 @@ M.createSprite 	= M.loadSprite
 - 	table 	**params** 				[可选] 创建带颜色图层的参数列表  
 
 ### OptionParameters
-	ccColor4B 		**color** 			背景色  
+	cc.Color4B 		**color** 			背景色  
+	cc.Size 		**size** 			内容尺寸  
 
 ### Returns: 
 -   cc.ColorLayer    
@@ -155,8 +156,17 @@ function M.loadLayerColor(params)
 	params 			= params or {}
 	-- 标题背景色：cc.c4b(52, 52, 52, 255) ，面板背景色：cc.c4b(38, 38, 38, 255)， 文字颜色：cc.c4b(189, 189, 189, 255)
 	local color 	= params.color or cc.c4b(38, 38, 38, 255)
+	local node 		= ex.ECSNodeEx.extend(cc.LayerColor:create(color))
 
- 	return ex.ECSNodeEx.extend(cc.LayerColor:create(color))
+	if params.size then 
+		node:setContentSize(params.size)
+	end
+
+	if params.ignoreAnchorPoint ~= nil then 
+		node:ignoreAnchorPointForPosition(params.ignoreAnchorPoint)
+	end
+
+ 	return node 
 end
 M.loadColorLayer 	= M.loadLayerColor
 

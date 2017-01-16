@@ -144,10 +144,11 @@ function Node:bindTouchLocate()
 
 			self.pre = {x = x, y = y} 
 		elseif event.name == "ended" then 
-			x, y 				= math.floor(x), math.floor(y) 
-			event.x, event.y 	= math.floor(event.x), math.floor(event.y) 
+			x, y 				= math.floor(self:px()), math.floor(self:py()) 
+			local worldPoint 	= self:convertToWorldSpaceAR(cc.p(0, 0))
+			local wx, wy 	= math.floor(worldPoint.x), math.floor(worldPoint.y) 
 			
-			print("Node localPosition = cc.p(" .. x .. ", " .. y .. "), worldPosition = cc.p(" .. event.x .. ", " .. event.y .. ")。")
+			print("Node localPosition = cc.p(" .. x .. ", " .. y .. "), worldPosition = cc.p(" .. wx .. ", " .. wy .. ")。")
 		end
 	end)
 	self:setTouchEnabled(true)
@@ -428,6 +429,111 @@ function Node:ay(y)
  		return self:getAnchorPoint().y
  	end
 end
+
+
+
+
+--[[-
+缩放比例  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的缩放比例。  
+
+### Aliases:
+	**s**  
+	**localScale**  
+
+### Notice:
+	当传递参数的时候，该方法为设置缩放比例，并返回当前节点。
+	当不传递参数的时候，该方法为获取缩放比例。
+
+### Parameters:
+- 	number  			**x** 					[可选] 宽度缩放比例  
+- 	number 	 			**y** 					[可选] 高度缩放比例  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:scale(x, y)
+	if not x then 
+		return self:getScale() 
+	end
+
+	if not y then 
+		self:setScale(x)
+	else
+		self:setScaleX(x)
+		self:setScaleY(y)
+	end
+
+ 	return self 
+end
+Node.s 				= Node.scale  
+Node.localScale 	= Node.scale  
+
+--[[-
+宽度缩放比例  
+
+<br/>  
+### Useage:
+  	设置或者获取节点的宽度缩放比例。  
+
+### Aliases:
+	**scaleX**  
+
+### Notice:
+	当传递参数x的时候，该方法为设置宽度缩放比例，并返回当前节点。
+	当不传递参数x的时候，该方法为获取宽度缩放比例。
+
+### Parameters:
+- 	number 	**x** 					[可选] 宽度缩放比例  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:sx(x)
+ 	if x then 
+ 		self:setScaleX(x)
+ 		return self 
+ 	else
+ 		return self:getScaleX() or self:getScale() 
+ 	end
+end
+Node.scaleX 	= Node.sx 
+
+--[[-
+高度缩放比例   
+
+<br/>  
+### Useage:
+  	设置或者获取节点的高度缩放比例。  
+
+### Aliases:
+	**scaleY**  
+
+### Notice:
+	当传递参数y的时候，该方法为设置高度缩放比例，并返回当前节点。
+	当不传递参数y的时候，该方法为获取高度缩放比例。
+
+### Parameters:
+- 	number 	**y** 					[可选] 高度缩放比例  
+
+### Returns: 
+-   cc.Node | number    
+
+--]]
+function Node:sy(y)
+ 	if y then 
+ 		self:setScaleY(y)
+ 		return self 
+ 	else
+ 		return self:getScaleY() or self:getScale() 
+ 	end
+end
+Node.scaleY 	= Node.sy 
 
 
 
