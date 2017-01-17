@@ -63,9 +63,10 @@ function M:loadTitle()
 	self:addChild(line, 10)
 
 	do 
-		local icon 	= cc.Sprite:create("img/common/ecstudio_icon.png")
+		local icon 	= cc.Sprite:create("img/common/cocos.png")
 
-		icon:setScale(.25)
+		icon:setScaleX(.06)
+		icon:setScaleY(.07)
 		icon:setPosition(30, 30)
 		line:addChild(icon, 10)
 	end
